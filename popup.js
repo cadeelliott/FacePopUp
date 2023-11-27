@@ -14,4 +14,6 @@ function setRandomInterval() {
   }, getRandomInterval());
 }
 
-document.addEventListener("DOMContentLoaded", setRandomInterval);
+chrome.runtime.onInstalled.addListener(function() {
+  setRandomInterval();
+});
