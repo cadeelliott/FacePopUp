@@ -1,6 +1,5 @@
 chrome.runtime.onInstalled.addListener(function() {
   chrome.action.setBadgeText({ text: "ON" });
-  setRandomInterval();
 });
 
 function getRandomInterval() {
@@ -18,3 +17,12 @@ function setRandomInterval() {
     showPopup();
   }, getRandomInterval());
 }
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+  if (request.action === "setRandomInterval") {
+    setRandomInterval();
+  }
+});
+
+// Set the random interval when the extension is installed or updated
+setRandomInterval();
