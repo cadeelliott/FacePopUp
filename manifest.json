@@ -1,10 +1,10 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Random Image Popup",
   "version": "1.0",
   "description": "A Chrome extension that pops up an image at random intervals.",
   "permissions": ["activeTab"],
-  "browser_action": {
+  "action": {
     "default_icon": {
       "16": "icon.png",
       "48": "icon.png",
@@ -16,5 +16,8 @@
     "16": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 }
