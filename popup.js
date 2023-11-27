@@ -1,3 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-  chrome.runtime.sendMessage({ action: "setRandomInterval" });
+  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, { action: "setRandomInterval" });
+  });
 });
